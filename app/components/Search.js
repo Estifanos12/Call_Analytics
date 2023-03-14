@@ -5,7 +5,7 @@ import Icons from "react-native-vector-icons/AntDesign"
 import { ThemeContext } from "../context/themeContext";
 import { colorPalette } from "../utils/color";
 
-export default function Search({ searchLogs }) {
+export default function Search({ searchLogs, searchTerm }) {
 
     const { theme } = useContext(ThemeContext)
     return (
@@ -18,8 +18,9 @@ export default function Search({ searchLogs }) {
             <TextInput
                 placeholder="Search name"
                 onChangeText={(value) => searchLogs(value)}
+                value={searchTerm}
                 style={[styles.input, {
-                    color: theme === "light" ? colorPalette.light.textBlack : colorPalette.dark.textLight
+                    color: theme === "light" ? colorPalette.light.textBlack : colorPalette.dark.textWhite
                 }]}
                 placeholderTextColor={theme === "light" ? colorPalette.light.textBlack : colorPalette.dark.textLight}
             />

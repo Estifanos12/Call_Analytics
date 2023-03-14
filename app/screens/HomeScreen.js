@@ -17,7 +17,7 @@ const totalGapSize = (itemPerRow - 1) * gap;
 const windowWidth = width;
 const childWidth = ((windowWidth - totalGapSize) / itemPerRow) - 5;
 
-export default function HomeScreen({ data, filteredData, searchLogs, chartData, totalCall }) {
+export default function HomeScreen({ data, filteredData, searchLogs, searchTerm, chartData, totalCall }) {
 
     const widthAndHeight = 270
     const sliceColor = ['#F44336', '#4CAF50', '#2196F3', "#964B00"]
@@ -106,7 +106,7 @@ export default function HomeScreen({ data, filteredData, searchLogs, chartData, 
             <View
                 style={styles.searchContainer}
             >
-                <Search searchLogs={searchLogs} />
+                <Search searchLogs={searchLogs} searchTerm={searchTerm} />
             </View>
             <LogList data={filteredData} />
         </ScrollView>

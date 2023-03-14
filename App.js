@@ -15,6 +15,8 @@ export default function App() {
   const [chartData, setChartData] = useState([1, 1, 1, 1])
   const [totalCall, setTotalLogs] = useState(0)
   const [accessGranted, setAccessGranted] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+
 
   let no_of_missed_call = 0
   let no_of_incoming_call = 0
@@ -94,9 +96,11 @@ export default function App() {
   const searchLogs = (value) => {
     if (value) {
       setFilteredData(logData.filter(log => log.name.toLowerCase().includes(value.toLowerCase().trim())))
+      setSearchTerm(value)
     }
     else {
       setFilteredData(logData)
+      setSearchTerm("")
     }
   }
 
@@ -116,7 +120,7 @@ export default function App() {
           accessGranted === false ? <ErrorScreen />
             : (
               <NavigationContainer>
-                <StackNavigation data={logData} filteredData={filteredData} searchLogs={searchLogs} chartData={chartData} totalCall={totalCall} />
+                <StackNavigation data={logData} filteredData={filteredData} searchLogs={searchLogs} searchTerm={searchTerm} chartData={chartData} totalCall={totalCall} />
               </NavigationContainer>)
         }
       </SafeAreaView>

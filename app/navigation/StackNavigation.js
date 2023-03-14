@@ -14,7 +14,7 @@ import { colorPalette } from "../utils/color";
 
 const Stack = createNativeStackNavigator()
 
-export default function StackNavigation({ data, filteredData, searchLogs, chartData, totalCall }) {
+export default function StackNavigation({ data, filteredData, searchLogs, searchTerm, chartData, totalCall }) {
     const { theme, setTheme } = useContext(ThemeContext)
     return (
         <Stack.Navigator
@@ -35,7 +35,7 @@ export default function StackNavigation({ data, filteredData, searchLogs, chartD
                         ),
                         headerTitle: () => <HeaderTitle />
                     }}>
-                {(props) => <HomeScreen {...props} data={data} filteredData={filteredData} searchLogs={searchLogs} chartData={chartData} totalCall={totalCall} />}
+                {(props) => <HomeScreen {...props} data={data} filteredData={filteredData} searchLogs={searchLogs} chartData={chartData} totalCall={totalCall} searchTerm={searchTerm} />}
             </Stack.Screen>
             <Stack.Screen
                 name="Contact"
